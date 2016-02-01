@@ -4,8 +4,8 @@
 	<title>Workshop | Главная</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<!-- Подключение CSS !-->
-	<link rel="stylesheet" href="css/main.css" type="text/css"/>
-    <link rel="stylesheet" href="css/fonts/roboto.css" type="text/css"/>
+	<link rel="stylesheet" href="core/style/main.css" type="text/css"/>
+    <link rel="stylesheet" href="core/style/fonts/roboto.css" type="text/css"/>
 	<!-- Подключение иконки сайта !-->
     <!--	<link rel="icon" href="favicon.ico" type="image/x-icon" />    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />-->
 </head>
