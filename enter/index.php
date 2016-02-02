@@ -1,9 +1,11 @@
 <?php
 session_start();
 //Проверка правильности ввода логин-пароль
-if (isset($_POST['login']) and isset($_POST['pass']) and !isset($_POST['isreg'])){include_once("../core/auth/auth_check.php");}
-if (isset($_POST['login']) and isset($_POST['pass']) and isset($_POST['isreg'])){include_once("../core/auth/registration.php");}
-
+if (isset($_POST['login']) and isset($_POST['pass']))
+{
+    if (isset($_POST['isreg'])) include_once("../core/auth/registration.php");
+    else                        include_once("../core/auth/auth_check.php");
+}
 //Если пользователь авторизован - перенаправление в личный кабинет
 if($_SESSION['auth']){session_write_close(); header("Location: ../room"); exit();}
 ?>
@@ -18,10 +20,11 @@ if($_SESSION['auth']){session_write_close(); header("Location: ../room"); exit()
 
     
 <?php if(!isset($_POST['isreg'])){ ?>
-    <h1>Авторизация</h1>    
+    <h1>Авторизация</h1>
+    <hr/>
     <form method="post">
-        <p>Логин<br/><input type="text" name="login" /></p>
-        <p>Пароль<br/> <input type="password" name="pass" /></p>
+        <p>Логин<br/><input type="text" name="login" required /></p>
+        <p>Пароль<br/> <input type="password" name="pass" required /></p>
         <p><input type="submit" value="Авторизоваться"/></p>
     </form>
     <hr/>    
@@ -30,10 +33,11 @@ if($_SESSION['auth']){session_write_close(); header("Location: ../room"); exit()
         <p><input type="submit" value="Регистрация"/></p>
     </form>
 <?php } else { ?>    
-    <h1>Регистрация</h1>    
+    <h1>Регистрация</h1> 
+    <hr/>
     <form method="post">
-        <p>Логин<br/><input type="text" name="login" /></p>
-        <p>Пароль<br/> <input type="password" name="pass" /></p>
+        <p>Логин<br/><input type="text" name="login"  required/></p>
+        <p>Пароль<br/> <input type="password" name="pass" required/></p>
         <input type="hidden" name="isreg" value="true">
         <p><input type="submit" value="Зарегистрироваться"/></p>
     </form>

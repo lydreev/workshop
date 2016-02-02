@@ -13,7 +13,7 @@ function authorization($login, $password)
         if($data['password'] === md5(md5(trim($password))))
         {
             $_SESSION['auth']=true; 
-            $_SESSION['username']=$data['username'];  
+            $_SESSION['user_id']=$data['id'];  
             $user_login=true; 
             session_write_close();
             header("Location: ../room"); 

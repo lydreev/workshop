@@ -5,5 +5,6 @@ function registration($login, $password)
 { 
     $pass_hash = md5(md5(trim($password)));
     $query = mysql_query("INSERT INTO users (`username` ,`password`) VALUES ('".mysql_real_escape_string($login)."', '".mysql_real_escape_string($pass_hash)."' )");
+    include_once("auth_check.php");
 }
 ?>
